@@ -1,9 +1,11 @@
 import React from 'react'
 import Login from './pages/Login'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div className='bg-red-400'>
+    <div>
+      <Navbar />
       <Login />
     </div>
   )
