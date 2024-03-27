@@ -1,13 +1,19 @@
 import React from 'react'
-import Login from './pages/Login'
-import Navbar from './components/Navbar'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import { SnackbarProvider } from 'notistack'
+import Home from './pages/Home'
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Login />
-    </div>
+    <>
+      <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical:'top', horizontal:'right' }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </SnackbarProvider>
+    </>
   )
 }
 
