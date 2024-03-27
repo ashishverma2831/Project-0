@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_DB_URI || process.env.PORT)
 
 const UserRouter = require('./routers/userRouter');
 
-app.use(express.json());
+// app.use(express.json());
 app.use(cors());
 app.use('/user', UserRouter);
 
