@@ -15,17 +15,17 @@ mongoose.connect(process.env.MONGO_DB_URI)
 
 
 
-
+const UserRouter = require('./routers/userRouter');
 
 app.use(express.json());
 app.use(cors({
     origin: 'http://localhost:5173',
 }));
-
-
-const UserRouter = require('./routers/userRouter');
-
 app.use('/user', UserRouter);
+
+
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World');
