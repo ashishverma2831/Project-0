@@ -1,5 +1,12 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
+
+
+const loginSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string().required('Required')
+})
 
 const Login = () => {
 
@@ -10,7 +17,8 @@ const Login = () => {
         },
         onSubmit: values => {
             console.log(values)
-        }
+        },
+        validationSchema: loginSchema
     })
 
 
@@ -52,6 +60,7 @@ const Login = () => {
                                         onChange={loginForm.handleChange}
                                         value={loginForm.values.email}
                                     />
+                                    <span className='text-sm '>{loginForm.touched.email && loginForm.errors.email}</span>
                                 </div>
                                 <div>
                                     <label
@@ -70,6 +79,7 @@ const Login = () => {
                                         onChange={loginForm.handleChange}
                                         value={loginForm.values.password}
                                     />
+                                    <span className='text-sm '>{loginForm.touched.password && loginForm.errors.password}</span>
                                 </div>
                                 {/* <div className="flex items-center justify-between">
                                     <div className="flex items-start">
