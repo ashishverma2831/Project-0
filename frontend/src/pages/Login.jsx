@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 const loginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string().required('Required')
+    password: Yup.string().required('Required').min(6, 'Password must be at least 6 characters long').max(12, 'Password must be at most 12 characters long').matches(/^[a-zA-Z0-9]{6,12}$/, 'Password must contain only letters and numbers')
 })
 
 const Login = () => {
@@ -60,7 +60,7 @@ const Login = () => {
                                         onChange={loginForm.handleChange}
                                         value={loginForm.values.email}
                                     />
-                                    <span className='text-sm '>{loginForm.touched.email && loginForm.errors.email}</span>
+                                    <span className='text-sm text-red-500'>{loginForm.touched.email && loginForm.errors.email}</span>
                                 </div>
                                 <div>
                                     <label
@@ -79,7 +79,7 @@ const Login = () => {
                                         onChange={loginForm.handleChange}
                                         value={loginForm.values.password}
                                     />
-                                    <span className='text-sm '>{loginForm.touched.password && loginForm.errors.password}</span>
+                                    <span className='text-sm text-red-500'>{loginForm.touched.password && loginForm.errors.password}</span>
                                 </div>
                                 {/* <div className="flex items-center justify-between">
                                     <div className="flex items-start">
