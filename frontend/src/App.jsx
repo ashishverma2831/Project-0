@@ -4,6 +4,7 @@ import { SnackbarProvider } from 'notistack'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import ErrorPage from './pages/ErrorPage'
+import Register from './pages/Register'
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Register />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>

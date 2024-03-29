@@ -1,18 +1,17 @@
-import React from 'react'
 import { useFormik } from 'formik'
+import React from 'react'
 import * as Yup from 'yup'
 import { enqueueSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
 
-const loginSchema = Yup.object().shape({
+const registerSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string().required('Required').min(6, 'Password must be at least 6 characters long').max(12, 'Password must be at most 12 characters long').matches(/^[a-zA-Z0-9]{6,12}$/, 'Password must contain only letters and numbers')
 })
 
-const Login = () => {
+const Register = () => {
 
-    const navigate = useNavigate();
-    const loginForm = useFormik({
+    const registerForm = useFormik({
         initialValues: {
             email: '',
             password: ''
@@ -44,31 +43,20 @@ const Login = () => {
                 });
             }
         },
-        validationSchema: loginSchema
+        validationSchema: registerSchema
     })
 
 
-    return (
-        <>
-            <section className="bg-gray-50 dark:bg-gray-900">
+  return (
+    <>
+        <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                    {/* <a
-                        href="#"
-                        className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-                    >
-                        <img
-                            className="w-8 h-8 mr-2"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-                            alt="logo"
-                        />
-                        Flowbite
-                    </a> */}
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                                Sign in 
+                                Register 
                             </h1>
-                            <form className="space-y-4 md:space-y-6" onSubmit={loginForm.handleSubmit}>
+                            <form className="space-y-4 md:space-y-6" onSubmit={registerForm.handleSubmit}>
                                 <div>
                                     <label
                                         htmlFor="email"
@@ -83,10 +71,10 @@ const Login = () => {
                                         className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="name@company.com"
                                         required=""
-                                        onChange={loginForm.handleChange}
-                                        value={loginForm.values.email}
+                                        onChange={registerForm.handleChange}
+                                        value={registerForm.values.email}
                                     />
-                                    <span className='text-sm text-red-500'>{loginForm.touched.email && loginForm.errors.email}</span>
+                                    <span className='text-sm text-red-500'>{registerForm.touched.email && registerForm.errors.email}</span>
                                 </div>
                                 <div>
                                     <label
@@ -102,10 +90,10 @@ const Login = () => {
                                         placeholder="••••••••"
                                         className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         required=""
-                                        onChange={loginForm.handleChange}
-                                        value={loginForm.values.password}
+                                        onChange={registerForm.handleChange}
+                                        value={registerForm.values.password}
                                     />
-                                    <span className='text-sm text-red-500'>{loginForm.touched.password && loginForm.errors.password}</span>
+                                    <span className='text-sm text-red-500'>{registerForm.touched.password && registerForm.errors.password}</span>
                                 </div>
                                 {/* <div className="flex items-center justify-between">
                                     <div className="flex items-start">
@@ -154,8 +142,8 @@ const Login = () => {
                     </div>
                 </div>
             </section>
-        </>
-    )
+    </>
+  )
 }
 
-export default Login
+export default Register
