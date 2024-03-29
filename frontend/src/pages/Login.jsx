@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-
-
+import { enqueueSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 
 const loginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -11,13 +11,38 @@ const loginSchema = Yup.object().shape({
 
 const Login = () => {
 
+    const navigate = useNavigate();
     const loginForm = useFormik({
         initialValues: {
             email: '',
             password: ''
         },
-        onSubmit: values => {
+        onSubmit: async (values,{setSubmitting,resetForm}) => {
             console.log(values)
+            setSubmitting(true)
+
+            const res = await fetch('http://localhost:3000/user/add',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(values)
+            });
+            console.log(res.status);
+            setSubmitting(false);
+
+            if(res.status === 200){
+                enqueueSnackbar('User added successfully', {
+                    variant: 'success',
+                });
+                resetForm();
+                navigate('/home');
+            }
+            else{
+                enqueueSnackbar('Error adding user', {
+                    variant: 'error',
+                });
+            }
         },
         validationSchema: loginSchema
     })
