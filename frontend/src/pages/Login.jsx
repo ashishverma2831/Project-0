@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 
+
 const loginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string().required('Required').min(6, 'Password must be at least 6 characters long').max(12, 'Password must be at most 12 characters long').matches(/^[a-zA-Z0-9]{6,12}$/, 'Password must contain only letters and numbers')
