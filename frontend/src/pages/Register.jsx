@@ -11,6 +11,7 @@ const registerSchema = Yup.object().shape({
 
 const Register = () => {
 
+    const navigate = useNavigate();
     const registerForm = useFormik({
         initialValues: {
             email: '',

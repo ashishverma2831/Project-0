@@ -28,7 +28,7 @@ router.post('/add',async(req,res)=>{
         console.log(req.body);
         const {email,password} = req.body;
 
-        const hashedPassword = await bcrypt.hash(password,10);
+        // const hashedPassword = await bcrypt.hash(password,10);
 
         await new User({email,password}).save()
         .then((result) => {
@@ -43,26 +43,39 @@ router.post('/add',async(req,res)=>{
 })
 
 router.post('/authenticate',async(req,res)=>{
-    try {
-        const {email,password} = req.body;
-        const user = await User.findOne({
-            email
-        });
-        if(user){
-            const isMatch = await bcrypt.compare(password,user.password);
-            if(isMatch){
-                res.json(user);
-            }
-            else{
-                res.status(401).json({message:'Invalid email or password'});
-            }
+    // try {
+    //     const {email,password} = req.body;
+    //     const user = await User.findOne({
+    //         email
+    //     });
+    //     if(user){
+    //         const isMatch = await bcrypt.compare(password,user.password);
+    //         if(isMatch){
+    //             res.json(user);
+    //         }
+    //         else{
+    //             res.status(401).json({message:'Invalid email or password'});
+    //         }
+    //     }
+    //     else{
+    //         res.status(401).json({message:'Invalid email or password'});
+    //     }
+    // } catch (error) {
+    //     res.status(500).json({message:error.message});
+    // }
+    
+    console.log(req.body);
+    await User.findOne(req.body)
+    .then((result) => {
+        if(result){
+            res.json(result);
         }
         else{
             res.status(401).json({message:'Invalid email or password'});
         }
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
+    }).catch((err) => {
+        res.status(500).json({message:err.message});
+    });
 })
 
 
