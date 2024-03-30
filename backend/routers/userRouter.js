@@ -28,9 +28,11 @@ router.post('/add',async(req,res)=>{
         console.log(req.body);
         const {email,password} = req.body;
 
-        // const hashedPassword = await bcrypt.hash(password,10);
-
-        await new User({email,password}).save()
+        const salt = await bcrypt.genSaltSync(10);
+        const hashedPassword = await bcrypt.hashSync(password,salt);
+        console.log(hashedPassword);
+        
+        await new User({email,password:hashedPassword}).save()
         .then((result) => {
             res.json(result);
         }).catch((err) => {
@@ -39,7 +41,6 @@ router.post('/add',async(req,res)=>{
     } catch (error) {
         res.status(500).json({message:error.message});
     }
-    // res.send('Hello');
 })
 
 router.post('/authenticate',async(req,res)=>{
