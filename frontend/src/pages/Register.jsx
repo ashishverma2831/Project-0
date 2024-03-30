@@ -2,7 +2,7 @@ import { useFormik } from 'formik'
 import React from 'react'
 import * as Yup from 'yup'
 import { enqueueSnackbar } from 'notistack';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const registerSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -126,17 +126,17 @@ const Register = () => {
                                     type="submit"
                                     className="w-full text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                                 >
-                                    Sign in
+                                    Sign up
                                 </button>
-                                {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                    Don’t have an account yet?{" "}
-                                    <a
-                                        href="#"
+                                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    Already have an account{" "}
+                                    <Link
+                                        to={'/login'}
                                         className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                                     >
-                                        Sign up
-                                    </a>
-                                </p> */}
+                                        Login here
+                                    </Link>
+                                </p>
                             </form>
                         </div>
                     </div>
