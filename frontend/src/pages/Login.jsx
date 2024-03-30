@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { enqueueSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
+import OAuth from '../components/OAuth';
 
 const loginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -150,6 +151,7 @@ const Login = () => {
                                     </a>
                                 </p> */}
                             </form>
+                            <OAuth />
                         </div>
                     </div>
                 </div>

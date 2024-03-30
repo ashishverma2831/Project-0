@@ -8,13 +8,12 @@ import { initializeApp } from "firebase/app";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 // require('dotenv').config();
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
-console.log(process.env.VITE_FIREBASE_KEY);
 
 const firebaseConfig = {
-  apiKey: process.env.VITE_FIREBASE_KEY,
+  apiKey: "AIzaSyC12kCkKe5ThKFWez1WJ50w5YjW2xoX-X0",
   authDomain: "project0-9e848.firebaseapp.com",
   projectId: "project0-9e848",
   storageBucket: "project0-9e848.appspot.com",
