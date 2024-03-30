@@ -42,4 +42,30 @@ router.post('/add',async(req,res)=>{
     // res.send('Hello');
 })
 
+router.post('/authenticate',async(req,res)=>{
+    try {
+        const {email,password} = req.body;
+        const user = await User.findOne({
+            email
+        });
+        if(user){
+            const isMatch = await bcrypt.compare(password,user.password);
+            if(isMatch){
+                res.json(user);
+            }
+            else{
+                res.status(401).json({message:'Invalid email or password'});
+            }
+        }
+        else{
+            res.status(401).json({message:'Invalid email or password'});
+        }
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+})
+
+
+
+
 module.exports = router;

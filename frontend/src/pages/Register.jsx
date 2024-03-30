@@ -31,11 +31,11 @@ const Register = () => {
             setSubmitting(false);
 
             if(res.status === 200){
-                enqueueSnackbar('User added successfully', {
+                enqueueSnackbar('User registered successfully', {
                     variant: 'success',
                 });
                 resetForm();
-                // navigate('/home');
+                navigate('/login');
             }
             else{
                 enqueueSnackbar('Error adding user', {

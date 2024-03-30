@@ -21,7 +21,7 @@ const Login = () => {
             console.log(values)
             setSubmitting(true)
 
-            const res = await fetch('http://localhost:3000/user/add',{
+            const res = await fetch('http://localhost:3000/user/authenticate',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,14 +32,14 @@ const Login = () => {
             setSubmitting(false);
 
             if(res.status === 200){
-                enqueueSnackbar('User added successfully', {
+                enqueueSnackbar('User Logged in successfully', {
                     variant: 'success',
                 });
                 resetForm();
-                // navigate('/home');
+                navigate('/home');
             }
             else{
-                enqueueSnackbar('Error adding user', {
+                enqueueSnackbar('Invalid Credentials', {
                     variant: 'error',
                 });
             }
