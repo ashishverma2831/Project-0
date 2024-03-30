@@ -142,7 +142,7 @@ const Register = () => {
                                 </p>
                             </form>
                             <OAuth />
-                            <GithubAuth />
+                            {/* <GithubAuth /> */}
                         </div>
                     </div>
                 </div>

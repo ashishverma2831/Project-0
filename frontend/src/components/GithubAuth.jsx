@@ -28,6 +28,7 @@ const GithubAuth = () => {
                 enqueueSnackbar('User registered successfully', {
                     variant: 'success',
                 });
+                navigate('/login');
             }
             else{
                 enqueueSnackbar('Something went Wrong', {
