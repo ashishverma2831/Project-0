@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "firebase": "^10.10.0",
     "flowbite": "^2.3.0",
     "formik": "^2.4.5",
