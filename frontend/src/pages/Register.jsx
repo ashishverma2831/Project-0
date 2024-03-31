@@ -5,6 +5,7 @@ import { enqueueSnackbar } from 'notistack';
 import { Link, useNavigate } from 'react-router-dom';
 import OAuth from '../components/OAuth';
 import GithubAuth from '../components/GithubAuth';
+import PhoneAuth from '../components/PhoneAuth';
 
 const registerSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -143,6 +144,7 @@ const Register = () => {
                             </form>
                             <OAuth />
                             {/* <GithubAuth /> */}
+                            <PhoneAuth />
                         </div>
                     </div>
                 </div>
