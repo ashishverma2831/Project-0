@@ -49,7 +49,7 @@ const PhoneAuthPage = () => {
         <button onClick={sendOTP} className='bg-red-500 text-white w-48 rounded-lg py-2 hover:opacity-90 my-4'>  Send OTP </button>
         <div id='recaptcha'></div>
         <br />
-        <input type="text" onChange={()=>{setOTP(e.target.value)}} placeholder='Enter OTP' className='w-48 rounded-lg py-2 my-4' />
+        <input type="text" onChange={(e)=>{setOTP(e.target.value)}} placeholder='Enter OTP' className='w-48 rounded-lg py-2 my-4' />
         <br />
         <button onClick={verifyOTP} className='bg-green-500 text-white w-48 rounded-lg py-2 hover:opacity-90 my-4'>  Verify OTP </button>
     </>
