@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import ErrorPage from './pages/ErrorPage'
 import Register from './pages/Register'
+import PhoneAuthPage from './pages/PhoneAuthPage'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/phone-auth-page" element={<PhoneAuthPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
