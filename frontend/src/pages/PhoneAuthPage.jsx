@@ -36,7 +36,8 @@ const PhoneAuthPage = () => {
         // });
 
         try {
-            await user.confirm(OTP);
+            const data = await user.confirm(OTP);
+            console.log(data);
         } catch (error) {
             console.log(error);
         }
