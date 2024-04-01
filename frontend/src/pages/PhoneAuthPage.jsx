@@ -42,6 +42,8 @@ const PhoneAuthPage = () => {
             console.log(error);
         }
     }
+    console.log(user);
+    // console.log();
 
   return (
     <>
