@@ -18,14 +18,16 @@ const ChangePassword = () => {
             console.log(values);
 
             const res = await fetch('http://localhost:3000/user/change-password', {
-                method: 'POST',
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(values)
             });
             console.log(res.status);
-            
+            // const data = await res.json();
+            // console.log(data);
+
         },
         validationSchema: changePasswordSchema
     })

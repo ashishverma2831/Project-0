@@ -83,7 +83,7 @@ router.post('/authenticate',async(req,res)=>{
 
 // })
 
-router.post('/change-password',async(req,res)=>{
+router.put('/change-password',async(req,res)=>{
     try {
         const {password} = req.body;
         const salt = await bcrypt.genSaltSync(10);
