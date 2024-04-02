@@ -7,6 +7,8 @@ import ErrorPage from './pages/ErrorPage'
 import Register from './pages/Register'
 import PhoneAuthPage from './pages/PhoneAuthPage'
 import EmailVerification from './pages/EmailVerification'
+import ForgetPassword from './pages/ForgetPassword'
+import ChangePassword from './pages/ChangePassword'
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/phone-auth-page" element={<PhoneAuthPage />} />
             <Route path="/email-verification" element={<EmailVerification />} />
+            <Route path="/forget-password" element={<ForgetPassword />} />
+            <Route path="/change-password" element={<ChangePassword />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>

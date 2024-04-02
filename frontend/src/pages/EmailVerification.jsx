@@ -1,6 +1,6 @@
 import { getAuth, sendEmailVerification } from 'firebase/auth';
 import { enqueueSnackbar } from 'notistack';
-import React from 'react'
+import React from 'react';                     
 
 const EmailVerification = () => {
 
