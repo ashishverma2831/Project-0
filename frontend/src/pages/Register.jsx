@@ -145,6 +145,9 @@ const Register = () => {
                             <OAuth />
                             {/* <GithubAuth /> */}
                             <PhoneAuth />
+                            <button className='bg-blue-500 text-white w-full rounded-lg py-2 hover:opacity-90 my-2'>
+                                <Link to={'/email-verification'}>Email Verification</Link>
+                            </button>
                         </div>
                     </div>
                 </div>
