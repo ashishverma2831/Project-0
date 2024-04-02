@@ -20,11 +20,11 @@ const Register = () => {
             email: '',
             password: ''
         },
-        onSubmit: async (values,{setSubmitting,resetForm}) => {
+        onSubmit: async (values, { setSubmitting, resetForm }) => {
             console.log(values)
             setSubmitting(true)
 
-            const res = await fetch('http://localhost:3000/user/add',{
+            const res = await fetch('http://localhost:3000/user/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,14 +34,14 @@ const Register = () => {
             console.log(res.status);
             setSubmitting(false);
 
-            if(res.status === 200){
+            if (res.status === 200) {
                 enqueueSnackbar('User registered successfully', {
                     variant: 'success',
                 });
                 resetForm();
                 navigate('/login');
             }
-            else{
+            else {
                 enqueueSnackbar('Error adding user', {
                     variant: 'error',
                 });
@@ -51,14 +51,14 @@ const Register = () => {
     })
 
 
-  return (
-    <>
-        <section className="bg-gray-50 dark:bg-gray-900">
+    return (
+        <>
+            <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                                Register 
+                                Register
                             </h1>
                             <form className="space-y-4 md:space-y-6" onSubmit={registerForm.handleSubmit}>
                                 <div>
@@ -145,15 +145,17 @@ const Register = () => {
                             <OAuth />
                             {/* <GithubAuth /> */}
                             <PhoneAuth />
-                            <button className='bg-blue-500 text-white w-full rounded-lg py-2 hover:opacity-90 my-2'>
-                                <Link to={'/email-verification'}>Email Verification</Link>
-                            </button>
+                            <Link to={'/email-verification'}>
+                                <button className='bg-blue-500 text-white w-full rounded-lg py-2 hover:opacity-90 my-2'>
+                                    Email Verification
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
-    </>
-  )
+        </>
+    )
 }
 
 export default Register
