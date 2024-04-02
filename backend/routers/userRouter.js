@@ -83,5 +83,21 @@ router.post('/authenticate',async(req,res)=>{
 
 // })
 
+router.post('/change-password',async(req,res)=>{
+    try {
+        const {password} = req.body;
+        const salt = await bcrypt.genSaltSync(10);
+        const hashedPassword = await bcrypt.hashSync(password,salt);
+        console.log(hashedPassword);
+        await User.findOneAndUpdate({email:req.body.email},{password:hashedPassword})
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            console.log(err);
+        });
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+})
 
 module.exports = router;

@@ -2,6 +2,7 @@ import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
 import { useFormik } from 'formik';
 import React, { useState } from 'react'
 import * as Yup from 'yup'
+import ChangePassword from './ChangePassword';
 
 const forgetPasswordSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required')
@@ -51,6 +52,7 @@ const ForgetPassword = () => {
         <br />
         <button type='submit' className='bg-green-500 text-white w-48 rounded-lg py-2 hover:opacity-90 my-4'>  Send Verification Email </button>
         </form>
+        {/* <ChangePassword /> */}
     </>
   )
 }
