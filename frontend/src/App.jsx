@@ -11,6 +11,7 @@ import ForgetPassword from './pages/ForgetPassword'
 import ChangePassword from './pages/ChangePassword'
 import Multer from './pages/Multer'
 import StripePayment from './pages/StripePayment'
+import ReactCloudinary from './pages/ReactCloudinary'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/multer" element={<Multer />} />
             <Route path="/stripe-payment" element={<StripePayment />} />
+            <Route path="/react-cloudinary" element={<ReactCloudinary />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>

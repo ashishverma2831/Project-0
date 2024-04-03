@@ -11,7 +11,7 @@ const Navbar = () => {
                     <ul className='flex gap-5 '>
                         <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
                         <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
-                        <li><a href='#' className='text-white'>Services</a></li>
+                        <li><NavLink to={'/react-cloudinary'} className='text-white'>React Cloudinary</NavLink></li>
                         <li><a href='#' className='text-white'>Contact</a></li>
                     </ul>
                 </div>
@@ -25,7 +25,7 @@ const Navbar = () => {
                         <ul className='flex gap-5 flex-col py-5'>
                         <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
                         <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
-                            <li><a href='#' className='text-white'>Services</a></li>
+                            <li><NavLink to={'/react-cloudinary'} className='text-white'>React Cloudinary</NavLink></li>
                             <li><a href='#' className='text-white'>Contact</a></li>
                         </ul>
                     </div>
