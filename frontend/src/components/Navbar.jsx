@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     const [sidebar, setSidebar] = useState(false)
@@ -8,8 +9,8 @@ const Navbar = () => {
                 <div className='text-white font-semibold text-xl'>Logo</div>
                 <div className='hidden md:block'>
                     <ul className='flex gap-5 '>
-                        <li><a href='#' className='text-white'>Home</a></li>
-                        <li><a href='#' className='text-white'>About</a></li>
+                        <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
+                        <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
                         <li><a href='#' className='text-white'>Services</a></li>
                         <li><a href='#' className='text-white'>Contact</a></li>
                     </ul>
@@ -22,8 +23,8 @@ const Navbar = () => {
                 <div className={sidebar?'absolute bg-gray-800 left-0 w-48 top-0 h-full text-center':'hidden'}>
                     <div>
                         <ul className='flex gap-5 flex-col py-5'>
-                            <li><a href='#' className='text-white'>Home</a></li>
-                            <li><a href='#' className='text-white'>About</a></li>
+                        <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
+                        <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
                             <li><a href='#' className='text-white'>Services</a></li>
                             <li><a href='#' className='text-white'>Contact</a></li>
                         </ul>
