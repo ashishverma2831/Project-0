@@ -16,12 +16,14 @@ mongoose.connect(process.env.MONGO_DB_URI)
 
 
 const UserRouter = require('./routers/userRouter');
+const MulterRouter = require('./routers/multerRouter');
 
 app.use(express.json());
 app.use(cors({
     origin: 'http://localhost:5173',
 }));
 app.use('/user', UserRouter);
+app.use('/multer', MulterRouter);
 
 
 
