@@ -24,7 +24,7 @@ app.use(cors({
 }));
 app.use('/user', UserRouter);
 app.use('/multer', MulterRouter);
-
+// app.use('/uploads',express.static('uploads'))
 
 
 
