@@ -20,7 +20,7 @@ const Multer = () => {
         validationSchema: multerSchema
     })
 
-    console.log(selFile);
+    // console.log(selFile);
 
     const uploadFile = (e) => {
         const file = e.target.files[0];
@@ -37,10 +37,32 @@ const Multer = () => {
         });
       };
 
+      const [multipleFile, setMultipleFile] = useState([])
+    const uploadMultipleFile = (e) => {
+        const files = e.target.files;
+        setMultipleFile(files);
+        const fd = new FormData();
+        for (let i = 0; i < files.length; i++) {
+          fd.append("myfile", files[i]);
+        }
+        fetch("http://localhost:3000/multer/uploadmultiplefile", {
+          method: "POST",
+          body: fd,
+        }).then((res) => {
+          if (res.status === 200) {
+            console.log("file uploaded");
+          }
+        });
+      }
+
     return (
         <>
-            <form  onSubmit={multerForm.handleSubmit}>
+            {/* <form  onSubmit={multerForm.handleSubmit}>
                 <input type="file" name="image" id='image' onChange={uploadFile} />
+                <button type='submit' className='bg-red-700 px-4 py-2' >Submit</button>
+            </form> */}
+            <form  onSubmit={multerForm.handleSubmit}>
+                <input multiple  type="file" name="image" id='image' onChange={uploadMultipleFile} />
                 <button type='submit' className='bg-red-700 px-4 py-2' >Submit</button>
             </form>
         </>
