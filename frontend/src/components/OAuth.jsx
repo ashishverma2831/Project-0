@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from '../firebase';
 import { enqueueSnackbar } from 'notistack';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const OAuth = () => {
 
     const navigate = useNavigate();
+    const [user, setUser] = useState(null);
     const handleGoogleClick = async () => {
         try {
             const provider = new GoogleAuthProvider(); 
@@ -14,6 +15,7 @@ const OAuth = () => {
 
             const result = await signInWithPopup(auth, provider);
             console.log(result);
+            setUser(result.user);
             console.log(result.user.displayName);
 
             const res = await fetch('http://localhost:3000/user/add',{
@@ -42,6 +44,7 @@ const OAuth = () => {
             console.log('Error in Google Signin', error);
         }
     }
+    console.log(user);
 
   return (
     <>
