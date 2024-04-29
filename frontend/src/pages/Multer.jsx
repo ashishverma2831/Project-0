@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import Navbar from '../components/Navbar';
 
 const multerSchema = Yup.object().shape({
     image: Yup.string().required('Required')
@@ -57,11 +58,12 @@ const Multer = () => {
 
     return (
         <>
+            <Navbar />
             {/* <form  onSubmit={multerForm.handleSubmit}>
                 <input type="file" name="image" id='image' onChange={uploadFile} />
                 <button type='submit' className='bg-red-700 px-4 py-2' >Submit</button>
             </form> */}
-            <form  onSubmit={multerForm.handleSubmit}>
+            <form  onSubmit={multerForm.handleSubmit} className='m-5'>
                 <input multiple  type="file" name="image" id='image' onChange={uploadMultipleFile} />
                 <button type='submit' className='bg-red-700 px-4 py-2' >Submit</button>
             </form>
