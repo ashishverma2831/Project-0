@@ -12,6 +12,7 @@ const Navbar = () => {
                         <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
                         <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
                         <li><NavLink to={'/react-cloudinary'} className='text-white'>React Cloudinary</NavLink></li>
+                        <li><NavLink to={'/node-cloudinary'} className='text-white'>Node Cloudinary</NavLink></li>
                         <li><a href='#' className='text-white'>Contact</a></li>
                     </ul>
                 </div>
@@ -26,6 +27,7 @@ const Navbar = () => {
                         <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
                         <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
                             <li><NavLink to={'/react-cloudinary'} className='text-white'>React Cloudinary</NavLink></li>
+                            <li><NavLink to={'/node-cloudinary'} className='text-white'>Node Cloudinary</NavLink></li>
                             <li><a href='#' className='text-white'>Contact</a></li>
                         </ul>
                     </div>
