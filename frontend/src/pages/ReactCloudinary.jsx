@@ -7,8 +7,8 @@ import {fill} from "@cloudinary/url-gen/actions/resize";
 const ReactCloudinary = () => {
 
   const cld = new Cloudinary({ cloud: { cloudName: 'dof7hiljv' } });
-  const myImage = cld.image('docs/model'); 
-  myImage.resize(fill().width(250).height(250));
+  const myImage = cld.image('docs/vegeta'); 
+  myImage.resize(fill().width(500).height(500));
 
   return (
     <>
