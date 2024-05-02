@@ -13,12 +13,6 @@ cloudinary.config({
 //   { public_id: "olympic_flag" }, 
 //   function(error, result) {console.log(result); });
 
-
-
-
-
-
-
 // Return "https" URLs by setting secure: true
 // cloudinary.config({
 //   secure: true
@@ -26,8 +20,6 @@ cloudinary.config({
 
 // Log the configuration
 console.log(cloudinary.config());
-
-
 
 /////////////////////////
 // Uploads an image file
@@ -52,8 +44,6 @@ const uploadImage = async (imagePath) => {
   }
 };
 
-
- 
 /////////////////////////////////////
 // Gets details of an uploaded image
 /////////////////////////////////////
@@ -73,8 +63,6 @@ const getAssetInfo = async (publicId) => {
       console.error(error);
   }
 };
-
-
 
 //////////////////////////////////////////////////////////////
 // Creates an HTML image tag with a transformation that
@@ -100,11 +88,6 @@ const createImageTag = (publicId, ...colors) => {
   return imageTag;
 };
 
-
-
-
-
-
 //////////////////
 //
 // Main function
@@ -122,10 +105,10 @@ const createImageTag = (publicId, ...colors) => {
   const colors = await getAssetInfo(publicId);
 
   // Create an image tag, using two of the colors in a transformation
-  const imageTag = await createImageTag(publicId, colors[0][0], colors[1][0]);
+  // const imageTag = await createImageTag(publicId, colors[0][0], colors[1][0]);
 
   // Log the image tag to the console
-  console.log(imageTag);
+  // console.log(imageTag);
 
 })();
 

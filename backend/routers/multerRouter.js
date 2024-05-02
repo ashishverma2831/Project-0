@@ -46,8 +46,8 @@ router.post("/uploadfile", myStorage.single("myfile"), (req, res) => {
   res.status(200).json({ status: "success" });
 });
 
-router.post("/uploadmultiplefile", myStorage.array('photos',12), (req, res) => {
-  res.status(200).json({ status: "success" });
-});
+// router.post("/uploadmultiplefile", myStorage.array('photos',12), (req, res) => {
+//   res.status(200).json({ status: "success" });
+// });
 
 module.exports = router;
