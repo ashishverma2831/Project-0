@@ -30,6 +30,7 @@
 
 const multer = require("multer");
 const router = require("express").Router();
+const MulterImage = require("../models/multerModel");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -42,8 +43,15 @@ const storage = multer.diskStorage({
 
 const myStorage = multer({ storage: storage });
 
-router.post("/uploadfile", myStorage.single("myfile"), (req, res) => {
+router.post("/profile", myStorage.single("myfile"), (req, res) => {
   res.status(200).json({ status: "success" });
+
+  const newMulterImage = new MulterImage({
+    filename: req.file.originalname,
+  });
+  newMulterImage.save();
+  console.log(req.file);
+
 });
 
 // router.post("/uploadmultiplefile", myStorage.array('photos',12), (req, res) => {
