@@ -14,29 +14,31 @@ const Multer = () => {
   //   }
   // })
 
-  // const uploadFile = async (e) => {
-  //   const file = e.target.files[0];
-  //   const formData = new FormData();
-  //   formData.append('image', file);
-  //   try {
-  //     const res = await fetch('http://localhost:5000/multer/profile', {
-  //       method: 'POST',
-  //       body: formData
-  //     });
-  //     const data = await res.json();
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-// }
+  const [files, setFiles] = useState([]);
+
+  const uploadFile = (e) => {
+    const file = e.target.files[0];
+    setFiles(file);
+    
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch( "http://localhost:3000/multer/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+      }
+    });
+  };
+  console.log(files);
 
   return (
     <>
       <Navbar />
-      <form onSubmit={multerForm.handleSubmit}>
-        <input type="file" name="image" id='image'
-          onChange={multerForm.handleChange}
-          values={multerForm.values.image}
+      <form>
+        <input type="file" name="avatar" multiple 
+        onChange={uploadFile} 
         />
         <button type='submit' className='bg-red-700 px-4 py-2'
         >Submit</button>
