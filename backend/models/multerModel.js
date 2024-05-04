@@ -1,7 +1,7 @@
 const {Schema,model} = require('mongoose');
 
 const multerSchema = new Schema({
-    image:{
+    image_url:{
         type: String,
         required: true
     }
