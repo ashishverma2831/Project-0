@@ -19,4 +19,12 @@ router.post("/profile", upload.single("file"), (req, res) => {
   // res.send("file uploaded");
 });
 
+router.post('/photos/upload', upload.array('photos', 12), function (req, res) {
+  // req.files is array of `photos` files
+  // req.body will contain the text fields, if there were any
+  res.status(200).json({ status: "success" });
+  console.log(req.files);
+  // console.log(req.body);
+})
+
 module.exports = router;
