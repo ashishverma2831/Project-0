@@ -10,11 +10,13 @@ const storage = multer.diskStorage({
   },
 });
 
-const myStorage = multer({ storage: storage });
+const upload = multer({ storage });
 
-router.post("/profile", myStorage.single("avatar"), (req, res) => {
+router.post("/profile", upload.single("file"), (req, res) => {
   res.status(200).json({ status: "success" });
-  res.send("file uploaded");
+  console.log(req.file);
+  console.log(req.body);
+  // res.send("file uploaded");
 });
 
 module.exports = router;
