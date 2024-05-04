@@ -26,7 +26,7 @@ const Multer = () => {
   //   }
   // })
 
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState();
   const upload = (e) => {
     e.preventDefault()
     const formData = new FormData()
