@@ -1,5 +1,6 @@
 // import {v2 as cloudinary} from 'cloudinary';
 const cloudinary = require('cloudinary').v2;
+const exp = require('constants');
 const fs = require('fs');
 
 require('dotenv').config();
@@ -9,6 +10,20 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY, 
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
+
+
+// const handleUpload = async (file) => {
+//   try {
+//     const res = await cloudinary.uploader.upload(file, {
+//       resource_type: "auto"
+//     });
+//     return res;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// module.exports = handleUpload;
 
 const uploadOnCloudinary = async (localFilePath) => {
   try {
@@ -28,7 +43,7 @@ const uploadOnCloudinary = async (localFilePath) => {
   }
 }
 
-// export {uploadOnCloudinary}
+module.exports = uploadOnCloudinary;
 
 
 

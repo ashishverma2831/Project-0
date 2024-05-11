@@ -1,6 +1,8 @@
 const multer = require("multer");
 const router = require("express").Router();
 const cloudinary = require('../utils/cloudinary.js');
+const handleUpload = require("../utils/cloudinary.js");
+const uploadOnCloudinary = require("../utils/cloudinary.js");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -14,9 +16,12 @@ const storage = multer.diskStorage({
 const myStorage = multer({ storage });
 
 router.post("/profile", myStorage.single("file"),(req, res) => {
+  // handleUpload(req.file.path);
+  uploadOnCloudinary(req.file.path);
   res.status(200).json({ status: "success" });
   console.log(req.file);
   console.log(req.body);
+  console.log(req.file.path);
   res.send("file uploaded");
 });
 
