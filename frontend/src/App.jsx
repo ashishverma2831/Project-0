@@ -13,6 +13,7 @@ import Multer from './pages/Multer'
 import StripePayment from './pages/StripePayment'
 import ReactCloudinary from './pages/ReactCloudinary'
 import NodeCloudinary from './pages/NodeCloudinary'
+import Razorpay from './pages/Razorpay'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/stripe-payment" element={<StripePayment />} />
             <Route path="/react-cloudinary" element={<ReactCloudinary />} />
             <Route path="/node-cloudinary" element={<NodeCloudinary />} />
+            <Route path="/razorpay" element={<Razorpay />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
