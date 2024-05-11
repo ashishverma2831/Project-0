@@ -17,11 +17,14 @@ const myStorage = multer({ storage });
 
 router.post("/profile", myStorage.single("file"),(req, res) => {
   // handleUpload(req.file.path);
+  // uploadOnCloudinary(req.file.path);
+
   uploadOnCloudinary(req.file.path);
+
   res.status(200).json({ status: "success" });
   console.log(req.file);
   console.log(req.body);
-  console.log(req.file.path);
+  console.log(req.file.path);                 
   res.send("file uploaded");
 });
 
