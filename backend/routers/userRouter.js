@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const User = require('../models/userModel.js');
 const bcrypt = require('bcryptjs');
@@ -98,6 +100,42 @@ router.put('/change-password',async(req,res)=>{
     } catch (error) {
         res.status(500).json({message:error.message});
     }
+})
+
+
+router.post('/payment',async(req,res)=>{
+    const product = await stripe.products.create({
+        name: 'T-shirt',
+    });
+    // const price = stripe.prices.create({
+    //     product: product.id,
+    //     unit_amount: 2000,
+    //     currency: 'usd',
+    // });
+    if(product){
+        const price = await stripe.prices.create({
+            product: product.id,
+            unit_amount: 2000,
+            currency: 'inr',
+        });
+    }
+
+    if(price.id){
+        const session =await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: [
+              {
+                price: price.id,
+                quantity: 1,
+              },
+            ],
+            mode: 'payment',
+            success_url: 'https://example.com/success',
+            cancel_url: 'https://example.com/cancel',
+            customer_email: 'demo@gmail.com',
+          });
+    }
+    res.json(session)
 })
 
 module.exports = router;

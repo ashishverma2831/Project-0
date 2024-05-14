@@ -10,7 +10,7 @@ const Navbar = () => {
                 <div className='hidden md:block'>
                     <ul className='flex gap-5 '>
                         <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
-                        <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
+                        <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe </NavLink></li>
                         <li><NavLink to={'/react-cloudinary'} className='text-white'>React Cloudinary</NavLink></li>
                         <li><NavLink to={'/node-cloudinary'} className='text-white'>Node Cloudinary</NavLink></li>
                         <li><NavLink to={'/razorpay'} className='text-white'>Razorpay</NavLink></li>
@@ -25,7 +25,7 @@ const Navbar = () => {
                     <div>
                         <ul className='flex gap-5 flex-col py-5'>
                             <li><NavLink to={'/multer'} className='text-white'>Multer</NavLink></li>
-                            <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe Payment</NavLink></li>
+                            <li><NavLink to={'/stripe-payment'} className='text-white'>Stripe </NavLink></li>
                             <li><NavLink to={'/react-cloudinary'} className='text-white'>React Cloudinary</NavLink></li>
                             <li><NavLink to={'/node-cloudinary'} className='text-white'>Node Cloudinary</NavLink></li>
                             <li><NavLink to={'/razorpay'} className='text-white'>Razorpay</NavLink></li>
