@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
+const stripe = require('stripe')('sk_test_51OqaSQSEAj666Bs3071GFENWzFvRBOBjNUikUNTn73Vr3qjVmpK8UxhWA6CY84TzbFCVHgFcmV1FEbgRNOj6ODcq00brENXfQi');
+// console.log(process.env.STRIPE_SECRET_KEY);
 const User = require('../models/userModel.js');
 const bcrypt = require('bcryptjs');
 
@@ -121,8 +121,8 @@ router.post('/payment',async(req,res)=>{
     }
 
     if(price.id){
-        const session =await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
+        var session = await stripe.checkout.sessions.create({
+            // payment_method_types: ['card'],
             line_items: [
               {
                 price: price.id,
