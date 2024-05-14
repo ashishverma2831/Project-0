@@ -113,9 +113,9 @@ router.post('/payment',async(req,res)=>{
     //     currency: 'usd',
     // });
     if(product){
-        const price = await stripe.prices.create({
+        var price = await stripe.prices.create({
             product: product.id,
-            unit_amount: 2000,
+            unit_amount: 200000,
             currency: 'inr',
         });
     }
