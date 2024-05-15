@@ -122,7 +122,7 @@ router.post('/payment',async(req,res)=>{
 
     if(price.id){
         var session = await stripe.checkout.sessions.create({
-            // payment_method_types: ['card'],
+            payment_method_types: ['card'],
             line_items: [
               {
                 price: price.id,

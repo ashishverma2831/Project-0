@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import {loadStripe} from '@stripe/stripe-js';
+import dotenv from 'dotenv'
 
 const StripePayment = () => {
 
@@ -16,7 +17,7 @@ const StripePayment = () => {
 
 
       // using stripe-js
-      const stripe = await loadStripe('pk_test_51OqaSQSEAj666Bs35PSJzCLSY2Vz209T2tc2kMIJnb99BflxMoMQ5AuLGCyRrebJdHxoyhJszmqQCpu2bk36hkX000eFNTO283');
+      const stripe = await loadStripe('pk_test');
       const response = await fetch('http://localhost:3000/user/payment',{
           method:'POST',
           headers:{
