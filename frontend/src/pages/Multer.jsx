@@ -36,7 +36,10 @@ const Multer = () => {
     formData.append('file', file)
     const res = await fetch('http://localhost:3000/multer/profile', {
       method: 'POST',
-      body: formData
+      body: formData,
+      // headers: {
+      //   'Content-Type': 'multipart/form-data'
+      // }
     })
     if(res.status === 200) {
       console.log('success')
